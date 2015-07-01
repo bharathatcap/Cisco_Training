@@ -55,7 +55,6 @@ public class MapDemo {
 	}
 
 
-
 	//DisplayData is used to display contents of treemap using for each loop
 	public static void displayData(Map<Integer,String> displaydata){
 		System.out.println("Keys :");
