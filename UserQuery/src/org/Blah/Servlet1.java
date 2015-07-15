@@ -22,10 +22,19 @@ public class Servlet1 extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String username=request.getParameter("userName");
 		String userpass=request.getParameter("userPass");
+		String male=request.getParameter("male");
+		String female=request.getParameter("female");
+		
+		
+		if  ((male!="" && female=="" )||(male!="" && female=="" )){
 		
 		 RequestDispatcher rd=request.getRequestDispatcher("servlet2");  
-	        rd.forward(request, response);  
+	        rd.include(request, response);  
 		
 	}
+		else {
+			System.out.println("Please choose male or female");
+		}
 
-}
+}}
+

@@ -4,7 +4,7 @@ import java.sql.DriverManager;
 import java.sql.Statement;
 
 
-public class JdbcUpdateDemo 
+public class JdbcDeleteDemo 
 {
 	static Connection conn;
 	static Statement stmt;
@@ -15,13 +15,11 @@ public class JdbcUpdateDemo
 			conn=DriverManager.getConnection("jdbc:derby:D:\\Users\\bkumar4\\MyDB;create=true");
 			System.out.println("success");
 			stmt=conn.createStatement();
-			System.out.println("Updating records in the table...");
-			String sql = "Update  emp " +
-	                  "Set salary=90000 where name ='Bharath'";
-	      stmt.execute(sql);
+			System.out.println("Deleting records from the table...");
+			String sql = "delete from thugss " +
+	                   "where name='bharath'";
+	      stmt.executeUpdate(sql);
 	      
-	     
-			
 			stmt.close();
 			conn.close();
 		} catch (Exception e) {

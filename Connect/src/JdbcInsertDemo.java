@@ -9,26 +9,24 @@ public class JdbcInsertDemo
 	static Statement stmt;
 	public static void main(String[] args) {
 		try {
-			Class.forName("org.apache.derby.jdbc.ClientDriver");
+			Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
 			System.out.println("driver is loaded successfully");
-			conn=DriverManager.getConnection("jdbc:derby://localhost:1527/jdbcDB;create=true", "user", "abc");
+			conn=DriverManager.getConnection("jdbc:derby:D:\\Users\\bkumar4\\MyDB;create=true");
 			System.out.println("success");
 			stmt=conn.createStatement();
 			System.out.println("Inserting records into the table...");
-			String sql = "INSERT INTO Registration " +
-	                   "VALUES (100, 'Zara', 'Ali', 18)";
-	      stmt.executeUpdate(sql);
-	      sql = "INSERT INTO Employee " +
-	                   "VALUES (101, 'Saloni', 'Fatma', 25)";
-	      stmt.executeUpdate(sql);
-	      sql = "INSERT INTO Registration " +
-	                   "VALUES (102, 'Salman', 'Khan', 30)";
-	      stmt.executeUpdate(sql);
-	      sql = "INSERT INTO Registration " +
-	                   "VALUES(103, 'Sumit', 'Mittal', 28)";
-	      stmt.executeUpdate(sql);
+			String sql = "INSERT INTO emp " +
+	                   "VALUES ('Bharath',381,50000)";
+	      stmt.execute(sql);
+	      sql = "INSERT INTO emp " +
+                  "VALUES ('Sharath',382,50005)";
+     
+	      stmt.execute(sql);
+	      
 	     
 			System.out.println("Values inserted");
+			stmt.close();
+			conn.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
